@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="2.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <h1>Головна</h1>
+    </header>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+
+    <!-- Кнопка "Вгору" -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <a class="active" href="index.html" onclick="closeMobileMenu()">Головна</a> 
+            <a href="alhpa.html" onclick="closeMobileMenu()">Про мене</a> 
+            <a href="saite.html" onclick="closeMobileMenu()">Мої роботи</a>
+            <a href="call.html" onclick="closeMobileMenu()">Контакти</a>
+        </nav>
+    </aside>
+
+    <main>
+        <article class="content-box fade-in-section">
+            <h2>Про мене</h2>
+            <p>Тут буде текст про мене. Це перший абзац з інформацією про те, хто я і чим займаюсь. Можна написати будь-що про свої навички та досвід.</p>
+            
+            <p>Другий абзац з додатковою інформацією. Можна розповісти про свої цілі, проекти або що завгодно інше.</p>
+            
+            <p>Третій абзац завершує статтю. Тут можна додати контактну інформацію або заклик до дії.</p>
+        </article>
+
+      
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Текст футера</p>
+        <p>Додатковий текст внизу</p>
+    </footer>
+
+   <script src="script.js"></script>
+   
+</body>
+</html>

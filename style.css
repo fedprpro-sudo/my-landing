@@ -1,0 +1,457 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    animation: fadeInOut 5s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    95% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+header {
+    background: linear-gradient(
+    to bottom,
+    rgba(30,144,255,.85),
+    rgba(30,144,255,.6)
+  );
+    padding: 40px 40px;
+    text-align: center;
+  position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    color: white;
+    font-size: 32px;
+    letter-spacing: 4px;
+}
+
+.sidebar {
+    background: rgba(0, 0, 0, 0.9);
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100vh;
+    z-index: 15;
+    padding-top: 120px;
+    transition: left 0.3s ease;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar nav {
+    padding: 30px 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: rgba(30, 144, 255, 0.3);
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.sidebar nav a:hover {
+    background: rgba(30, 144, 255, 0.6);
+    transform: translateX(5px);
+}
+
+.sidebar nav a.active {
+    background: rgba(30, 144, 255, 0.9);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+    font-weight: bold;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    background: white;
+    color: #1e90ff;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50px 50px 0 50px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.menu-toggle:hover {
+    background: #1e90ff;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Кнопка "Вгору" */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: #187bcd;
+    transform: translateY(-5px);
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.content-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    max-width: 800px;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Анімація появи при скролі */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-box h2 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #1e90ff;
+    padding-bottom: 10px;
+}
+
+.content-box p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Стилі для форми */
+.contact-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1e90ff;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(30, 144, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1e90ff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #187bcd;
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-success {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(34, 197, 94, 0.2);
+    border: 2px solid #22c55e;
+    border-radius: 5px;
+    color: #22c55e;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Стилі для списку сайтів */
+.site-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+.site-item {
+    display: flex;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-item:hover {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.6);
+    cursor: pointer;
+    transform: translateX(5px);
+}
+
+.site-link-col {
+    flex: 0 0 150px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('ff.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.site-link-col a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    position: static;
+}
+
+.site-link-col a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.site-description-col {
+    flex: 1;
+    padding: 15px 20px;
+    color: white;
+    font-size: 0.95em;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+}
+
+/* Адаптивність для планшетів */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .content-box {
+        padding: 30px;
+    }
+
+    .content-box h2 {
+        font-size: 24px;
+    }
+
+    .menu-toggle {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .site-item {
+        flex-direction: column;
+    }
+
+    .site-link-col {
+        flex: 0 0 100px;
+        width: 100%;
+    }
+}
+
+/* Адаптивність для мобільних */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .content-box {
+        padding: 20px;
+    }
+
+    .content-box h2 {
+        font-size: 20px;
+    }
+
+    .content-box p {
+        font-size: 14px;
+    }
+
+    .menu-toggle {
+        top: 20px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .sidebar {
+        width: 200px;
+        left: -200px;
+        padding-top: 80px;
+    }
+
+    .sidebar nav {
+        padding: 20px 10px;
+    }
+
+    .sidebar nav a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
