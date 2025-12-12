@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт</title>
+    <title>About Me</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,42 +12,46 @@
     </video>
 
     <header>
-        <h1>Головна</h1>
+        <!-- Now English title + active highlight -->
+        <h1 class="active">About Me</h1>
     </header>
 
-    <button class="menu-toggle" onclick="toggleMenu()">☰ Меню</button>
+    <div class="lang-switcher">
+        <button class="active" onclick="setLanguage('en')">EN</button>
+        <button onclick="setLanguage('uk')">UA</button>
+        <button onclick="setLanguage('ru')">RU</button>
+    </div>
 
-    <!-- Кнопка "Вгору" -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
     <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
 
     <aside class="sidebar" id="sidebar">
         <nav>
-            <a class="active" href="index.html" onclick="closeMobileMenu()">Головна</a> 
-            <a href="alhpa.html" onclick="closeMobileMenu()">Про мене</a> 
-            <a href="saite.html" onclick="closeMobileMenu()">Мої роботи</a>
-            <a href="call.html" onclick="closeMobileMenu()">Контакти</a>
+            <a href="index.html" onclick="closeMobileMenu()">Home</a> 
+            <a class="active" href="alhpa.html" onclick="closeMobileMenu()">About Me</a> 
+            <a href="saite.html" onclick="closeMobileMenu()">My Works</a>
+            <a href="call.html" onclick="closeMobileMenu()">Contacts</a>
         </nav>
     </aside>
 
     <main>
-        <article class="content-box fade-in-section">
-            <h2>Про мене</h2>
-            <p>Тут буде текст про мене. Це перший абзац з інформацією про те, хто я і чим займаюсь. Можна написати будь-що про свої навички та досвід.</p>
-            
-            <p>Другий абзац з додатковою інформацією. Можна розповісти про свої цілі, проекти або що завгодно інше.</p>
-            
-            <p>Третій абзац завершує статтю. Тут можна додати контактну інформацію або заклик до дії.</p>
-        </article>
+        <article class="content-box fade-in-section visible">
+            <h2>About Me</h2>
 
-      
+            <p>This is a short introduction about me. Here you can describe who you are and what you do. You may write about your skills, experience, or anything relevant.</p>
+            
+            <p>The second paragraph may include your goals, interests, future plans, or ongoing projects.</p>
+            
+            <p>The third paragraph completes the article. You may include contact information or a call to action.</p>
+        </article>
     </main>
 
     <footer>
-        <p>&copy; 2024 Текст футера</p>
-        <p>Додатковий текст внизу</p>
+        <p>&copy; 2024 Footer text</p>
+        <p>Additional text below</p>
     </footer>
 
-   <script src="script.js"></script>
-   
+    <script src="script.js"></script>
 </body>
 </html>
